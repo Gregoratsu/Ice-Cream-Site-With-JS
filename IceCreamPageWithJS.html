@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="IceCreamPageWithJS.css" />
+		<link rel="icon" href="favicon.ico" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+		<script src="IceCreamPageWithJS.js"></script>
+		<title>IceCreamPage</title>
+	</head>
+	<body>
+		<!--Header & Navigation-->
+		<header>
+			<div class="navigation">
+				<div class="logo">
+					<div class="nav-bar-text">ICY ICE-CREAM</div>
+				</div>
+				<nav class="nav-bar">
+					<a class="nav-bar-text" href="#">SHOP</a>
+					<a class="nav-bar-text" href="#">DELIVERY</a>
+					<a class="nav-bar-text" href="#">VISIT US</a>
+					<button class="nav-bar-text">ACCOUNT</button>
+				</nav>
+			</div>
+		</header>
+		<!--Main-->
+		<main>
+			<!--Type-selection-->
+			<div class="type-selection">
+				<div>
+					<h1 class="menu-text">HOW WOULD YOU LIKE YOUR ICE-CREAM ?</h1>
+				</div>
+				<div class="type-selection-form">
+					<form>
+						<div class="selection cone">
+							<input
+								type="radio"
+								name="type"
+								id="cone"
+								value="cone"
+								onchange="getValCone()" />
+							<label class="sub-menu-text" for="cone">IN A CONE</label>
+						</div>
+						<div class="selection cup">
+							<input
+								type="radio"
+								name="type"
+								id="cup"
+								value="cup"
+								onchange="getValCup()" />
+							<label class="sub-menu-text" for="cup">IN A CUP</label>
+						</div>
+						<button class="sub-menu-text type-reset" type="reset">
+							Cancel
+						</button>
+					</form>
+				</div>
+			</div>
+			<!--Type-Selection-Image-->
+			<div class="type-selection-images">
+				<img id="cone-image" src="ice-cream-cone.png" alt="" />
+				<img id="cup-image" src="ice-cream-cup.png" alt="" />
+			</div>
+			<!--Flavour-selection-->
+			<div class="flavour-selection">
+				<div>
+					<h1 class="menu-text">
+						WHAT FLAVOUR/S WOULD NEED TO BE SCOOPED - 1 scoop = 2 euro - ?
+					</h1>
+				</div>
+				<div class="flavour-selection-images">
+					<img id="vanilla-img" src="ice-cream-flavour-vanilla.png" alt="" />
+					<img
+						id="chocolate-img"
+						src="ice-cream-flavour-chocolate.png"
+						alt="" />
+					<img
+						id="strawberry-img"
+						src="ice-cream-flavour-strawberry.png"
+						alt="" />
+					<img id="banana-img" src="ice-cream-flavour-banana.png" alt="" />
+					<img id="coffee-img" src="ice-cream-flavour-coffee.png" alt="" />
+				</div>
+				<div class="flavour-selection-form">
+					<form>
+						<div class="selection vanilla">
+							<input
+								type="checkbox"
+								name="vanilla"
+								id="vanilla"
+								onclick="showVanilla()" />
+							<label class="sub-menu-text flavour-name" for="vanilla"
+								>Vanilla</label
+							><input
+								class="flavour-qty"
+								type="number"
+								name="vanilla-qty"
+								id="vanilla-qty"
+								min="1"
+								max="5"
+								onchange="getValTot()" />
+						</div>
+						<div class="selection chocolate">
+							<input
+								type="checkbox"
+								name="chocolate"
+								id="chocolate"
+								onclick="showChocolate()" />
+							<label class="sub-menu-text flavour-name" for="chocolate"
+								>Chocolate</label
+							><input
+								class="flavour-qty"
+								type="number"
+								name="chocolate-qty"
+								id="chocolate-qty"
+								min="1"
+								max="5"
+								onchange="getValTot()" />
+						</div>
+						<div class="selection strawberry">
+							<input
+								type="checkbox"
+								name="strawberry"
+								id="strawberry"
+								onclick="showStrawberry()" />
+							<label class="sub-menu-text flavour-name" for="strawberry"
+								>Strawberry</label
+							><input
+								class="flavour-qty"
+								type="number"
+								name="strawberry-qty"
+								id="strawberry-qty"
+								min="1"
+								max="5"
+								onchange="getValTot()" />
+						</div>
+						<div class="selection banana">
+							<input
+								type="checkbox"
+								name="banana"
+								id="banana"
+								onclick="showBanana()" />
+							<label class="sub-menu-text flavour-name" for="banana"
+								>Banana</label
+							><input
+								class="flavour-qty"
+								type="number"
+								name="banana-qty"
+								id="banana-qty"
+								min="1"
+								max="5"
+								onchange="getValTot()" />
+						</div>
+						<div class="selection coffee">
+							<input
+								type="checkbox"
+								name="coffee"
+								id="coffee"
+								onclick="showCoffee()" />
+							<label class="sub-menu-text flavour-name" for="coffee"
+								>Coffee</label
+							><input
+								class="flavour-qty"
+								type="number"
+								name="coffee-qty"
+								id="coffee-qty"
+								min="1"
+								max="5"
+								onchange="getValTot()" />
+						</div>
+						<div>
+							<button class="sub-menu-text flavour-reset" type="reset">
+								Cancel
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!--Total-basket-->
+			<div class="total-basket">
+				<form>
+					<div>
+						<h1 class="menu-text outcome" id="final-selection">
+							YOUR SELECTION :
+						</h1>
+					</div>
+					<div class="outcome-image" id="final-images">
+						<img src="#" alt="" />
+					</div>
+
+					<div id="final-total">
+						<h1 class="menu-text total-price">THE TOTAL IS :</h1>
+					</div>
+					<div class="menu-text" id="final-price"></div>
+					<button class="sub-menu-text" id="reset-all" onclick="resetPageInputs()">Cancel</button>
+				</form>
+			</div>
+		</main>
+		<footer>
+			<div class="footer-navigation">
+				<div class="nav-bar-text">Attempted devolpment by Greg L</div>
+			</div>
+		</footer>
+	</body>
+</html>
